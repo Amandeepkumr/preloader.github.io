@@ -1,0 +1,71 @@
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: cornsilk;
+    background: -webkit-linear-gradient(to right, rgb(76, 0, 255) , green);
+    background: linear-gradient(to right,rgb(13, 13, 14),rgb(94, 89, 91));
+}
+.loader-wrapper{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(18, 18, 19);
+    animation: changeColor 10s linear infinite;
+    z-index: 100;
+}
+.loader-wrapper .loader{
+    position: relative;
+    display:flex;
+}
+.loader-wrapper h3{
+    color: rgb(255, 61, 47);
+    font-weight: 500;
+    letter-spacing: 10px;
+}
+.loader-wrapper .loader .dot{
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background:rgb(133, 247, 57);
+    box-shadow: 0 0 10px lime,0 0 20px lime,0 0 40px lime,0 0 60px lime,0 0 80px lime,0 0 100px lime;
+    margin: 20px 10px;
+    transform: scale(0.1);
+    border-radius: 50%;
+    animation: animateDot 2s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+.loader-wrapper .loader:last-child .dot{
+    animation-delay: calc(-0.1s * var(--i));
+}
+.content{
+    text-align: center;
+    font-size: 2em;
+    color: linen;
+}
+@keyframes animateDot{
+    0%{
+        transform: scale(0.1);
+    }
+    10%{
+        transform: scale(1);
+    }
+    50%,
+    100%{
+        transform: scale(0.1);
+    }
+}
+@keyframes changeColor{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
